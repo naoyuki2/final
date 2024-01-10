@@ -15,5 +15,26 @@
     <link rel="stylesheet" href="css/index.css" />
 
     <title>Recipient</title>
+    <script src="./lib/suggest.js"></script>
 </head>
 <body>
+<nav class="mb-5 navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
+  <div class="container-fluid">
+    <?php
+        if(isset($_GET['id'])){
+            echo '<i class="backButton fa-solid fa-arrow-left fa-3x" id="backButton"></i>';
+        }else{
+            echo '<div></div>';
+        }
+    ?>
+
+    <form>
+      <input class="px-5 form-control me-2" type="search" placeholder="レシピを検索" aria-label="Search">
+      <!-- <i class="fa-solid fa-magnifying-glass"></i> 虫眼鏡のアイコン -->
+    </form>
+
+    <div>
+        <a href="recipeWrite.php">レシピを書く</a>
+    </div>
+  </div>
+</nav>

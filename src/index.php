@@ -1,16 +1,25 @@
 <?php
     require './common/header.php';
-    require './common/db-connect.php';
+    require './utils/select.php';
 
-    // echo '<img src="./img/default.jpg" alt="default">';
-    $pdo = new PDO($connect, USER, PASS);
-    $sql = $pdo->query('select * from recipe');
-    foreach($sql as $row){
-        echo '<a href="recipeDetail.php?id='.$row['id'].'">';
-        echo '<img src=',$row['img_path'],' alt="dish_img">';
-        echo '<div>',$row['dish_name'],'</div>';
-        echo '</a>';
+    $recipe = getRecipeList();
+
+    echo '<div class="container text-center">';
+    echo '<div class="row">';
+    foreach($recipe as $row){
+        echo '<div class="col-12 col-md-6 col-lg-4">';
+            echo '<div class="card">';
+                echo '<a href="recipeDetail.php?id='.$row['id'].'">';
+                    echo '<img src=',$row['img_path'],' class="card-img-top">';
+                    echo '<div class="card-body">';
+                        echo '<div>',$row['dish_name'],'</div>';
+                    echo '</div>';
+                echo '</a>';
+            echo '</div>';
+        echo '</div>';
     }
+    echo '</div>';
+    echo '</div>';
 
     require './common/footer.php';
 ?>

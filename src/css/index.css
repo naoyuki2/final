@@ -6,3 +6,7 @@ body {
     background-color: #f9f0df;
     color: #496556;
 }
+
+.backButton {
+    cursor: pointer;
+}
