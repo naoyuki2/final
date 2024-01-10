@@ -9,7 +9,7 @@
 ?>
 
     <h1>レシピ投稿</h1>
-    <form action="./utils/insert.php" method="post">
+    <form action="./utils/insert.php" method="post" id="form">
         <div>
             <input name="dish_name" placeholder="レシピのタイトル">
         </div>
@@ -20,7 +20,7 @@
             <input name="img_path" placeholder="画像選択">
         </div>
         <div>
-            <input id="text" type="text" name="fruit" value="" autocomplete="off">
+            <input id="text_category" type="text" name="category_name" value="" autocomplete="off" placeholder="カテゴリ">
             <!-- 補完候補を表示するエリア -->
             <div id="suggest_category"></div>
         </div>
@@ -28,7 +28,9 @@
             <input name="secret_key" placeholder="秘密の暗号">
         </div>
         <div>
-            <input name="ingredient_id" placeholder="材料">
+            <input id="text_ingredient" type="text" name="ingredient_name" value="" autocomplete="off" placeholder="材料">
+            <!-- 補完候補を表示するエリア -->
+            <div id="suggest_ingredient"></div>
             <input name="quantity" placeholder="分量">
             <input name="unit" placeholder="単位">
         </div>
@@ -50,9 +52,16 @@
     });
 
     const category = <?php echo json_encode($category); ?>;
-    new Suggest.Local("text", "suggest_category", category);
+    new Suggest.Local("text_category", "suggest_category", category);
 
     const ingredient = <?php echo json_encode($ingredient); ?>;
-    new Suggest.Local("text", "suggest_ingredient", ingredient);
+    new Suggest.Local("text_ingredient", "suggest_ingredient", ingredient);
+
+    document.getElementById("form").onkeypress = (e) => {
+    const key = e.keyCode || e.charCode || 0;
+        if (key == 13) {
+            e.preventDefault();
+        }
+    }
 
 </script>
