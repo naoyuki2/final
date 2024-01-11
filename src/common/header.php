@@ -21,7 +21,7 @@
 <nav class="mb-5 navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
   <div class="container-fluid">
     <?php
-        if(isset($_GET['id'])){
+        if(isset($_GET['id']) || isset($_GET['write'])){
             echo '<i class="backButton fa-solid fa-arrow-left fa-3x" id="backButton"></i>';
         }else{
             echo '<div></div>';
@@ -34,7 +34,7 @@
     </form>
 
     <div>
-        <a href="recipeWrite.php">レシピを書く</a>
+        <a href="recipeWrite.php?write=true">レシピを書く</a>
     </div>
   </div>
 </nav>
