@@ -10,7 +10,8 @@
     $img_path = $_POST['img_path'];
     echo '<p>'.$img_path.'</p>';
     if(empty($img_path)){
-        echo '<img src="./img/default.jpg">';
+        // echo '<img src="./img/default.jpg">';
+        echo '<h1>./img/default.jpg</h1>';
     }else{
         echo '<img src="'.$img_path.'">';
     }
@@ -19,13 +20,12 @@
     echo '<p>'.$category_name.'</p>';
 
     $ingredient_name = $_POST['ingredient_name'];
-    echo '<p>'.$ingredient_name.'</p>';
-
     $quantity = $_POST['quantity'];
-    echo '<p>'.$quantity.'</p>';
-
     $unit = $_POST['unit'];
-    echo '<p>'.$unit.'</p>';
+
+    array_map(function($i, $q, $u) {
+        echo '<p>材料名: '.$i.', 分量: '.$q.', 単位: '.$u.'</p>';
+    }, $ingredient_name, $quantity, $unit);
 
     require './common/footer.php';
 ?>
