@@ -57,5 +57,5 @@
         postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q, $u);
     }, $_POST['ingredient_name'], $_POST['quantity'], $_POST['unit']);
 
-    header('Location: ../recipeComp.php');
+    header('Location: ../recipeComp.php?recipe_id=' . $recipe_id['id'] . '');
 ?>
