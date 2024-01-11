@@ -9,7 +9,7 @@
 ?>
 
     <h1>レシピ投稿</h1>
-    <form action="recipeConfirm.php" method="post" id="form" enctype="multipart/form-data">
+    <form action="./process/recipeInsert.php" method="post" id="form" enctype="multipart/form-data">
         <div>
             <input name="dish_name" placeholder="レシピのタイトル">
         </div>

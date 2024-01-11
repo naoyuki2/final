@@ -84,4 +84,40 @@
             exit('データベース接続失敗。'.$e->getMessage());
         }
     }
+
+    function getCategoryId($category_name){
+        global $pdo;
+        try{
+            $sql = $pdo->prepare('select id from category where category_name = ?');
+            $sql->execute([$category_name]);
+            return $sql->fetch();
+        }catch(PDOException $e){
+            exit('データベース接続失敗。'.$e->getMessage());
+        }
+
+    }
+
+    function getRecipeId($dish_name){
+        global $pdo;
+        try{
+            $sql = $pdo->prepare('select id from recipe where dish_name = ?');
+            $sql->execute([$dish_name]);
+            return $sql->fetch();
+        }catch(PDOException $e){
+            exit('データベース接続失敗。'.$e->getMessage());
+        }
+
+    }
+
+    function getIngredientId($ingredient_name){
+        global $pdo;
+        try{
+            $sql = $pdo->prepare('select id from ingredient where ingredient_name = ?');
+            $sql->execute([$ingredient_name]);
+            return $sql->fetch();
+        }catch(PDOException $e){
+            exit('データベース接続失敗。'.$e->getMessage());
+        }
+
+    }
 ?>
