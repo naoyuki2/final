@@ -18,6 +18,7 @@
     <script src="./lib/suggest.js"></script>
 </head>
 <body>
+<div class="wrap">
 <nav class="mb-5 navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
   <div class="container-fluid">
     <?php
@@ -38,3 +39,12 @@
     </div>
   </div>
 </nav>
+
+<script>
+    window.addEventListener('load', () => {
+    const wrap = document.querySelector('.wrap');
+    setTimeout(() => {
+      wrap.classList.add('active');
+    }, 200); // n秒後に.wrapを表示
+    });
+</script>

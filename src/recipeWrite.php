@@ -35,7 +35,7 @@
         </div>
         <button type="button" id="ingredientPlus"><i class="fa-solid fa-circle-plus"></i> 材料を追加する</button>
         <div>
-            <input type="submit" value="投稿内容を確認する">
+            <input type="submit" value="投稿する">
         </div>
         <img id="image_preview" src="#" alt="Image Preview" />
     </form>

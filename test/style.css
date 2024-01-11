@@ -1,27 +1,4 @@
 body {
-    /* background-image: url(../img/radiant-gradient.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; */
-    background-color: #f9f0df;
-    color: #496556;
-}
-
-.backButton {
-    cursor: pointer;
-}
-
-.wrap {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.wrap.active {
-    opacity: 1;
-}
-
-//opening
-body {
     text-align: center;
 }
 
