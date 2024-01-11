@@ -11,12 +11,9 @@
                 $file_extension = pathinfo($uploaded_file['name'], PATHINFO_EXTENSION);
                 if (in_array($file_extension, $allowed_extensions)) {
                     // 保存先のパスを指定
-                    $destination = '../uploads/' . $uploaded_file['name'];
+                    $destination = '../../uploads/' . $uploaded_file['name'];
 
-                    // ファイルを指定した場所に移動
-                    if (!file_exists('../uploads')) {
-                        mkdir('uploads', 0777, true);
-                    }            
+                    // ファイルを指定した場所に移動      
                     if (move_uploaded_file($uploaded_file['tmp_name'], $destination)) {
                         $_SESSION['insertMessage'] = "File uploaded successfully.";
                     } else {
@@ -48,7 +45,9 @@
     $category_id = getCategoryId($_POST['category_name']);
     // echo $category_id['id'];
 
-    postRecipe($_POST['dish_name'], $_POST['process'], $destination, $category_id['id']);
+    $img_path = mb_substr($destination, 3);
+
+    postRecipe($_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
 
     $recipe_id = getRecipeId($_POST['dish_name']);
 
