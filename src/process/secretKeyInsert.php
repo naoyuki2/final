@@ -1,7 +1,9 @@
 <?php
-    $secret_key = $_POST['secret_key'];
+    require '../utils/update.php';
+
     $recipe_id = $_GET['recipe_id'];
-    echo $secret_key;
-    echo '<br>';
-    echo $recipe_id;
+    $secret_key = $_POST['secret_key'];
+
+    updateSecretKey($recipe_id,$secret_key);
+
 ?>

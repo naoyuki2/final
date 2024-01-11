@@ -45,7 +45,13 @@
     $category_id = getCategoryId($_POST['category_name']);
     // echo $category_id['id'];
 
-    $img_path = mb_substr($destination, 3);
+    if($destination === './img/default.jpg'){
+        $img_path = $destination;
+    }else{
+        $img_path = mb_substr($destination, 3);
+    }
+
+    
 
     postRecipe($_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
 
