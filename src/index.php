@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="opening" id="opening">
-    <img src="./img/default.jpg" alt="" class="logo" id="logo">
+    <img src="./img/opening3.jpg" alt="" class="logo" id="logo">
 </div>
 
 <div class="item-wrap" id="itemWrap">

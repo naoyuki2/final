@@ -21,6 +21,11 @@
         // echo '<h1>材料ID：',$row['ingredient_id'],'</h1>';
         echo '<h1>',$ingredient['ingredient_name'],'：',$row['quantity'],$row['unit'],'</h1>';
     }
+    echo '<form action="./process/secretKeyCheck.php?recipe_id=',$recipe['id'],'" method="post">';
+        echo '<p>秘密の暗号を入力して、編集または削除をする</p>';
+        echo '<input type="text" name="secret_key">';
+        echo '<button type="submit">解除！</button>';
+    echo '</form>';
 
     require './common/footer.php';
 ?>
