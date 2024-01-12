@@ -9,6 +9,6 @@
     if($secret_key === $recipe['secret_key']){
         header('Location: ../recipeEdit.php?id='.$recipe_id);
     }else{
-        header('Location: ../recipeDetail.php?id='.$recipe_id);
+        echo '<script> history.back(); </script>';
     }
 ?>
