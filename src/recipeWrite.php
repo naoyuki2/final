@@ -56,7 +56,7 @@
         ingredientCount++;
         const ingredient = document.createElement('div');
         ingredient.className = 'd-flex flex-row';
-        ingredient.innerHTML = `<input id="text_ingredient${ingredientCount}" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料"><div id="suggest_ingredient${ingredientCount}"></div> <input name="quantity[]" placeholder="分量"> <input name="unit[]" placeholder="単位">`;
+        ingredient.innerHTML = `<input id="text_ingredient${ingredientCount}" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料"><div id="suggest_ingredient${ingredientCount}"></div> <input name="quantity[]" placeholder="分量">`;
         ingredientPlus.before(ingredient);
         new Suggest.Local(`text_ingredient${ingredientCount}`, `suggest_ingredient${ingredientCount}`, ingredientList);
     });

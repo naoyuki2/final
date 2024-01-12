@@ -38,7 +38,6 @@
             <input id="text_ingredient" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料">
             <div id="suggest_ingredient"></div>
             <input name="quantity[]" placeholder="分量">
-            <input name="unit[]" placeholder="単位">
         </div>
         <button type="button" id="ingredientPlus"><i class="fa-solid fa-circle-plus"></i> 材料を追加する</button>
         <div>
@@ -64,7 +63,7 @@
         ingredientCount++;
         const ingredient = document.createElement('div');
         ingredient.className = 'd-flex flex-row';
-        ingredient.innerHTML = `<input id="text_ingredient${ingredientCount}" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料"><div id="suggest_ingredient${ingredientCount}"></div> <input name="quantity[]" placeholder="分量"> <input name="unit[]" placeholder="単位">`;
+        ingredient.innerHTML = `<input id="text_ingredient${ingredientCount}" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料"><div id="suggest_ingredient${ingredientCount}"></div> <input name="quantity[]" placeholder="分量">`;
         ingredientPlus.before(ingredient);
         new Suggest.Local(`text_ingredient${ingredientCount}`, `suggest_ingredient${ingredientCount}`, ingredientList);
     });
