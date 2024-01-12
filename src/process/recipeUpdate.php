@@ -49,8 +49,8 @@
 
     updateRecipe($recipe_id, $_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
 
-    // // Get the current ingredients
-    // $current_ingredients = getRecipeIngredients($recipe_id);
+    // Get the current ingredients
+    $current_ingredients = getRecipeIngredients($recipe_id);
 
     // foreach($_POST['ingredient_name'] as $key => $ingredient){
     //     $quantity = $_POST['quantity'][$key];

@@ -27,10 +27,10 @@
         </div>
         <div>
             <input class="form-control" type="file" name="img_path" id="img_path">
-            <input type="hidden" name="img_path" value="<?php echo $recipe['img_path']; ?>">
+            <input type="hidden" name="img_path" value="<?php echo $recipe['img_path'];?>">
         </div>
         <div>
-            <input id="text_category" type="text" name="category_name" value="" autocomplete="off" placeholder="カテゴリ">
+            <input id="text_category" type="text" name="category_name" value="<?php echo $category['category_name']; ?> " autocomplete="off" placeholder="カテゴリ">
             <!-- value=',$category['category_name'],' -->
             <!-- 補完候補を表示するエリア -->
             <div id="suggest_category"></div>
