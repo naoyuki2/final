@@ -44,11 +44,11 @@
         }
     }
 
-    function postRecipeIngredientLink($recipe_id,$ingredient_id,$quantity,$unit){
+    function postRecipeIngredientLink($recipe_id,$ingredient_id,$quantity,){
         global $pdo;
         try{
-            $stmt = $pdo->prepare("INSERT INTO recipe_ingredient_link (recipe_id,ingredient_id,quantity,unit) VALUES (?,?,?,?)");
-            $stmt->execute([$recipe_id,$ingredient_id,$quantity,$unit]);
+            $stmt = $pdo->prepare("INSERT INTO recipe_ingredient_link (recipe_id,ingredient_id,quantity) VALUES (?,?,?)");
+            $stmt->execute([$recipe_id,$ingredient_id,$quantity]);
         }catch(PDOException $e){
             exit('データベース接続失敗。'.$e->getMessage());
         }

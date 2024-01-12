@@ -57,11 +57,11 @@
 
     $recipe_id = getRecipeId($_POST['dish_name']);
 
-    array_map(function($i, $q, $u) {
+    array_map(function($i, $q) {
         global $recipe_id;
         $ingredient_id = getIngredientId($i);
-        postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q, $u);
-    }, $_POST['ingredient_name'], $_POST['quantity'], $_POST['unit']);
+        postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q);
+    }, $_POST['ingredient_name'], $_POST['quantity']);
 
     header('Location: ../recipeComp.php?recipe_id=' . $recipe_id['id'] . '');
 ?>
