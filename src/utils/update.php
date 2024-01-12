@@ -11,4 +11,14 @@
             exit('データベース接続失敗。'.$e->getMessage());
         }
     }
+
+    function updateRecipe($id, $dish_name, $process, $img_path, $category_id){
+        global $pdo;
+        try{
+            $stmt = $pdo->prepare("UPDATE recipe SET dish_name = ?, process = ?, img_path = ?, category_id = ? where id = ?");
+            $stmt->execute([$dish_name, $process, $img_path, $category_id, $id]);
+        }catch(PDOException $e){
+            exit('データベース接続失敗。'.$e->getMessage());
+        }
+    }
 ?>

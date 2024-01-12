@@ -18,7 +18,7 @@
         echo '</a>';
     ?>
     <h1>レシピ編集</h1>
-    <form action="./process/recipeUpdate.php" method="post" id="form" enctype="multipart/form-data">
+    <form action="./process/recipeUpdate.php?id=<?php echo $recipe_id; ?>" method="post" id="form" enctype="multipart/form-data">
         <div>
             <?php echo '<input name="dish_name" placeholder="レシピのタイトル" value=',$recipe['dish_name'],'>'; ?>
         </div>
@@ -27,6 +27,7 @@
         </div>
         <div>
             <input class="form-control" type="file" name="img_path" id="img_path">
+            <input type="hidden" name="img_path" value="<?php echo $recipe['img_path']; ?>">
         </div>
         <div>
             <input id="text_category" type="text" name="category_name" value="" autocomplete="off" placeholder="カテゴリ">

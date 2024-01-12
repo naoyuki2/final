@@ -31,32 +31,64 @@
             }
         }
     }else{
-        $img_path = './img/default.jpg';
+        $img_path = $_POST['img_path'];
     }
 
     require '../utils/insert.php';
     require '../utils/select.php';
+    require '../utils/update.php';
+
+    $recipe_id = $_GET['id'];
 
     postCategory($_POST['category_name']);
+    $category_id = getCategoryId($_POST['category_name']);
 
     foreach($_POST['ingredient_name'] as $ingredient){
         postIngredient($ingredient);
     }
 
-    $category_id = getCategoryId($_POST['category_name']);
-    // echo $category_id['id']; 
+    updateRecipe($recipe_id, $_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
 
-    postRecipe($_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
+    // // Get the current ingredients
+    // $current_ingredients = getRecipeIngredients($recipe_id);
 
-    $recipe_id = getRecipeId($_POST['dish_name']);
+    // foreach($_POST['ingredient_name'] as $key => $ingredient){
+    //     $quantity = $_POST['quantity'][$key];
 
-    array_map(function($i, $q) {
-        global $recipe_id;
-        $ingredient_id = getIngredientId($i);
-        if(!($q === '' || $i === '')){
-            postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q);
-        }
-    }, $_POST['ingredient_name'], $_POST['quantity']);
+    //     // If the ingredient is empty, continue to the next one
+    //     if($ingredient === '' || $quantity === ''){
+    //         continue;
+    //     }
 
-    header('Location: ../recipeComp.php?recipe_id=' . $recipe_id['id'] . '');
+    //     // If the ingredient is not in the current ingredients, add it
+    //     if(!in_array($ingredient, $current_ingredients)){
+    //         postIngredient($ingredient);
+    //         $ingredient_id = getIngredientId($ingredient);
+    //         postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $quantity);
+    //     } else {
+    //         // If the ingredient is in the current ingredients, update it
+    //         $ingredient_id = getIngredientId($ingredient);
+    //         updateRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $quantity);
+    //     }
+    // }
+
+    // // Remove any ingredients that are no longer present
+    // foreach($current_ingredients as $ingredient){
+    //     if(!in_array($ingredient, $_POST['ingredient_name'])){
+    //         $ingredient_id = getIngredientId($ingredient);
+    //         deleteRecipeIngredientLink($recipe_id['id'], $ingredient_id['id']);
+    //     }
+    // }
+
+    header('Location: ../top.php');
+
+    // array_map(function($i, $q) {
+    //     global $recipe_id;
+    //     $ingredient_id = getIngredientId($i);
+    //     if(!($q === '' || $i === '')){
+    //         postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q);
+    //     }
+    // }, $_POST['ingredient_name'], $_POST['quantity']);
+
+    // header('Location: ../recipeComp.php?recipe_id=' . $recipe_id['id'] . '');
 ?>
