@@ -61,13 +61,6 @@ body {
     position: relative;
 }
 
-.hello {
-    position: absolute;
-    display: block;
-    top: 10px;
-    right: 16px;
-}
-
 .active .hello {
     animation: helloMove 0.8s cubic-bezier(0.5, 0, 0, 0.5) both;
 }

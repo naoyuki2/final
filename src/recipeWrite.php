@@ -3,9 +3,6 @@
     require './utils/select.php';
     $category = getAllCategory();
     $ingredient = getAllIngredient();
-    // echo '<pre>';
-    // var_dump($category);
-    // echo '</pre>';
 ?>
 
     <h1>レシピ投稿</h1>
@@ -24,9 +21,6 @@
             <!-- 補完候補を表示するエリア -->
             <div id="suggest_category"></div>
         </div>
-        <!-- <div>
-            <input name="secret_key" placeholder="秘密の暗号">
-        </div> -->
         <div class="d-flex flex-row">
             <input id="text_ingredient" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料">
             <div id="suggest_ingredient"></div>
