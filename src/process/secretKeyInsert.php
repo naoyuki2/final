@@ -6,4 +6,6 @@
 
     updateSecretKey($recipe_id,$secret_key);
 
+    header('Location: ../index.php');
+
 ?>

@@ -60,7 +60,9 @@
     array_map(function($i, $q) {
         global $recipe_id;
         $ingredient_id = getIngredientId($i);
-        postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q);
+        if(!($q === '' || $i === '')){
+            postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $q);
+        }
     }, $_POST['ingredient_name'], $_POST['quantity']);
 
     header('Location: ../recipeComp.php?recipe_id=' . $recipe_id['id'] . '');
