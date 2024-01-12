@@ -12,6 +12,7 @@
                 if (in_array($file_extension, $allowed_extensions)) {
                     // 保存先のパスを指定
                     $destination = '../../uploads/' . $uploaded_file['name'];
+                    $img_path = mb_substr($destination, 3);
 
                     // ファイルを指定した場所に移動      
                     if (move_uploaded_file($uploaded_file['tmp_name'], $destination)) {
@@ -30,7 +31,7 @@
             }
         }
     }else{
-        $destination = './img/default.jpg';
+        $img_path = './img/default.jpg';
     }
 
     require '../utils/insert.php';
@@ -43,15 +44,7 @@
     }
 
     $category_id = getCategoryId($_POST['category_name']);
-    // echo $category_id['id'];
-
-    if($destination === './img/default.jpg'){
-        $img_path = $destination;
-    }else{
-        $img_path = mb_substr($destination, 3);
-    }
-
-    
+    // echo $category_id['id']; 
 
     postRecipe($_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
 
