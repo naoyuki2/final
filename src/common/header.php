@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="wrap">
-<nav class="mb-5 navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
+<nav class="navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
   <div class="container-fluid">
     <?php
         if(isset($_GET['id']) || isset($_GET['write'])){
