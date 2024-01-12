@@ -37,48 +37,54 @@
     require '../utils/insert.php';
     require '../utils/select.php';
     require '../utils/update.php';
+    require '../utils/delete.php';
 
     $recipe_id = $_GET['id'];
 
     postCategory($_POST['category_name']);
     $category_id = getCategoryId($_POST['category_name']);
 
-    foreach($_POST['ingredient_name'] as $ingredient){
-        postIngredient($ingredient);
-    }
-
     updateRecipe($recipe_id, $_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
 
-    // Get the current ingredients
-    $current_ingredients = getRecipeIngredients($recipe_id);
+    // 現在のレシピの材料名をすべて取得
+    $current_ingredients = getRecipeAllIngredient($recipe_id);
+    $current_ingredients_name = [];
+    foreach($current_ingredients as $ingredient){
+        $current_ingredients_name[] = $ingredient['ingredient_name'];
+    }
 
-    // foreach($_POST['ingredient_name'] as $key => $ingredient){
-    //     $quantity = $_POST['quantity'][$key];
+    foreach($_POST['ingredient_name'] as $key => $ingredient){
+        $quantity = $_POST['quantity'][$key];
+        // echo $ingredient;みそ
+        // echo $quantity;10
 
-    //     // If the ingredient is empty, continue to the next one
-    //     if($ingredient === '' || $quantity === ''){
-    //         continue;
-    //     }
+        // If the ingredient is empty, continue to the next one
+        if($ingredient === '' || $quantity === ''){
+            continue;
+        }
 
-    //     // If the ingredient is not in the current ingredients, add it
-    //     if(!in_array($ingredient, $current_ingredients)){
-    //         postIngredient($ingredient);
-    //         $ingredient_id = getIngredientId($ingredient);
-    //         postRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $quantity);
-    //     } else {
-    //         // If the ingredient is in the current ingredients, update it
-    //         $ingredient_id = getIngredientId($ingredient);
-    //         updateRecipeIngredientLink($recipe_id['id'], $ingredient_id['id'], $quantity);
-    //     }
-    // }
+        // If the ingredient is not in the current ingredients, add it
+        if(!in_array($ingredient, $current_ingredients_name)){
+            echo '入ってない';
+            postIngredient($ingredient);
+            $ingredient_id = getIngredientId($ingredient);
+            postRecipeIngredientLink($recipe_id, $ingredient_id['id'], $quantity);
+        } else {
+            echo '入ってる';
+            // If the ingredient is in the current ingredients, update it
+            $ingredient_id = getIngredientId($ingredient);
+            updateRecipeIngredientLink($recipe_id, $ingredient_id['id'], $quantity);
+        }
+    }
 
     // // Remove any ingredients that are no longer present
-    // foreach($current_ingredients as $ingredient){
-    //     if(!in_array($ingredient, $_POST['ingredient_name'])){
-    //         $ingredient_id = getIngredientId($ingredient);
-    //         deleteRecipeIngredientLink($recipe_id['id'], $ingredient_id['id']);
-    //     }
-    // }
+    foreach($current_ingredients_name as $ingredient){
+        if(!in_array($ingredient, $_POST['ingredient_name'])){
+            echo '消す',$ingredient;
+            $ingredient_id = getIngredientId($ingredient);
+            deleteRecipeIngredientLink($recipe_id, $ingredient_id['id']);
+        }
+    }
 
     header('Location: ../top.php');
 

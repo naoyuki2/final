@@ -3,7 +3,7 @@
 
     $recipe_id = $_GET['id'];
 
-    deleteRecipeIngredientLink($recipe_id);
+    deleteRecipeIngredientLinkAll($recipe_id);
     deleteRecipe($recipe_id);
 
     header('Location: ../top.php');

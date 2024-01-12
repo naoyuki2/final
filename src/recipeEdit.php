@@ -31,13 +31,8 @@
         </div>
         <div>
             <input id="text_category" type="text" name="category_name" value="<?php echo $category['category_name']; ?> " autocomplete="off" placeholder="カテゴリ">
-            <!-- value=',$category['category_name'],' -->
-            <!-- 補完候補を表示するエリア -->
             <div id="suggest_category"></div>
         </div>
-        <!-- <div>
-            <input name="secret_key" placeholder="秘密の暗号">
-        </div> -->
         <?php
             foreach($recipeDetail as $row){
                 $ingredient = getIngredient($row['ingredient_id']);
@@ -48,7 +43,6 @@
                 echo '</div>';
             }
         ?>
-        </div>
         <button type="button" id="ingredientPlus"><i class="fa-solid fa-circle-plus"></i> 材料を追加する</button>
         <div>
             <input type="submit" value="投稿する">

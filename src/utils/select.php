@@ -29,7 +29,8 @@
             $sql = $pdo->prepare('
             select * from recipe_ingredient_link where recipe_id = ?');
             $sql->execute([$id]);
-            return $sql;
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
         }catch(PDOException $e){
             exit('データベース接続失敗。'.$e->getMessage());
         }
@@ -118,6 +119,22 @@
         }catch(PDOException $e){
             exit('データベース接続失敗。'.$e->getMessage());
         }
+    }
 
+    function getRecipeAllIngredient($id){
+        global $pdo;
+        try{
+            $sql = $pdo->prepare('
+            select ingredient.ingredient_name
+            from recipe_ingredient_link 
+            inner join ingredient
+            on recipe_ingredient_link.ingredient_id = ingredient.id
+            where recipe_ingredient_link.recipe_id = ?
+            ');
+            $sql->execute([$id]);
+            return $sql->fetchAll(PDO :: FETCH_ASSOC);
+        }catch(PDOException $e){
+            exit('データベース接続失敗。'.$e->getMessage());
+        }
     }
 ?>
