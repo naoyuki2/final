@@ -2,13 +2,15 @@
     require './common/header.php';
     require './utils/select.php';
     require './utils/update.php';
-    require './utils/delete.php';
+    
+    $recipe_id = $_GET['id'];
+
     $category = getAllCategory();
     $ingredient = getAllIngredient();
-    $recipe_id = $_GET['id'];
-    // echo '<pre>';
-    // var_dump($category);
-    // echo '</pre>';
+
+    $recipe = getRecipe($recipe_id);
+    $recipeDetail = getRecipeDetail($recipe_id);
+    $category = getCategory($recipe['category_id']);
 ?>
     <?php
         echo '<a href="./process/recipeDelete.php?id=',$recipe_id,'">';
@@ -16,34 +18,41 @@
         echo '</a>';
     ?>
     <h1>レシピ編集</h1>
-    <form action="./process/recipeInsert.php" method="post" id="form" enctype="multipart/form-data">
+    <form action="./process/recipeUpdate.php" method="post" id="form" enctype="multipart/form-data">
         <div>
-            <input name="dish_name" placeholder="レシピのタイトル">
+            <?php echo '<input name="dish_name" placeholder="レシピのタイトル" value=',$recipe['dish_name'],'>'; ?>
         </div>
         <div>
-            <textarea name="process" cols="30" rows="10" placeholder="作り方の手順"></textarea>
+            <?php echo '<textarea name="process" cols="30" rows="10" placeholder="作り方の手順">',$recipe['process'],'</textarea>'; ?>
         </div>
         <div>
             <input class="form-control" type="file" name="img_path" id="img_path">
         </div>
         <div>
             <input id="text_category" type="text" name="category_name" value="" autocomplete="off" placeholder="カテゴリ">
+            <!-- value=',$category['category_name'],' -->
             <!-- 補完候補を表示するエリア -->
             <div id="suggest_category"></div>
         </div>
         <!-- <div>
             <input name="secret_key" placeholder="秘密の暗号">
         </div> -->
-        <div class="d-flex flex-row">
-            <input id="text_ingredient" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="材料">
-            <div id="suggest_ingredient"></div>
-            <input name="quantity[]" placeholder="分量">
+        <?php
+            foreach($recipeDetail as $row){
+                $ingredient = getIngredient($row['ingredient_id']);
+                echo '<div class="d-flex flex-row">';
+                    echo '<input id="text_ingredient" type="text" name="ingredient_name[]" value=',$ingredient['ingredient_name'],' autocomplete="off" placeholder="材料">';
+                    echo '<div id="suggest_ingredient"></div>';
+                    echo '<input name="quantity[]" placeholder="分量" value=',$row['quantity'],'>';
+                echo '</div>';
+            }
+        ?>
         </div>
         <button type="button" id="ingredientPlus"><i class="fa-solid fa-circle-plus"></i> 材料を追加する</button>
         <div>
             <input type="submit" value="投稿する">
         </div>
-        <img id="image_preview" src="#" alt="Image Preview" />
+        <?php echo '<img id="image_preview" alt="Image Preview" src=',$recipe['img_path'],' />'; ?>
     </form>
 <?php
     require './common/footer.php'
