@@ -6,7 +6,7 @@
     <div class="container text-center">
         <div class="row">
             <?php foreach($recipe as $row){ ?>
-                <div class="col-12 col-md-6 col-lg-4 mt-4">
+                <div class="col-6 col-md-6 col-lg-4 mt-4">
                     <div class="card">
                         <a href="recipeDetail.php?id=<?php echo $row['id']; ?>">
                             <img src=<?php echo $row['img_path'];?> class="card-img-top">
