@@ -6,13 +6,19 @@
 </div>
 
 <div class="item-wrap" id="itemWrap">
-    <h1 class="comment">ようこそレシピ共有アプリへ</h1>
-    <p>ここでは自分のレシピをみんなに共有することができます。</p>
-    <p>安心してください。レシピを書いた人は誰にも知られることはありません。</p>
-    <p>いいねも、コメントもありません。</p>
-    <a href="./top.php">
-        <input class="btn btn-outline-secondary" type="button" value="さっそく始める">
-    </a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <p class="comment fs-4">ようこそレシピ共有アプリ</p>
+                <p class="fs-5">ここでは自分のレシピをみんなに共有することができます。</p>
+                <p class="fs-5">安心してください。レシピを書いた人は誰にも知られることはありません。</p>
+                <p class="fs-5">いいねも、コメントもありません。</p>
+                <a href="./top.php">
+                    <input class="btn btn-outline-secondary" type="button" value="さっそく始める">
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php
