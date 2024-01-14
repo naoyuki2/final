@@ -56,7 +56,7 @@ body {
 
 .item-wrap {
     padding-top: 70px;
-    width: 274px;
+    /* width: 274px; */
     margin: auto;
     position: relative;
 }
@@ -143,4 +143,9 @@ body {
     100% {
         transform: translateY(0);
     }
+}
+
+.logo {
+    width: 500px;
+    height: auto;
 }
