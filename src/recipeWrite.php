@@ -47,7 +47,9 @@
                                 <input class="col" id="text_ingredient" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="例）豚肉">
                                 <p id="suggest_ingredient"></p>
                                 <input class="mx-1 col text-muted" name="quantity[]" placeholder="例）350g">
-                                <input class="col-1 ingredientMinus" type="button" id="ingredientMinus" value="-">
+                                <div class="col-1">
+                                    <i class="ingredientMinus fa-regular fa-circle-xmark fa-lg" role="button" id="ingredientMinus"></i>
+                                </div>
                             </div>
                             <div class="row w-auto" id="ingredientPlus">
                                 <p class="w-auto fs-6 mt-1" type="button"> + 行を追加する</p>
@@ -55,7 +57,7 @@
                             <p class="fs-5 fw-bold">手順</p>
                             <textarea class="fs-6 w-100" name="process" placeholder="作り方の手順"></textarea>
                             <div class="row pt-3 justify-content-center">
-                                <button class="col-6" type="submit">投稿する  </button>
+                                <button class="col-6 btn btn-outline-success" type="submit">投稿する  </button>
                             </div>
                         </div>
                     </div>
@@ -85,7 +87,9 @@
             <input class="col" id="text_ingredient${ingredientCount}" type="text" name="ingredient_name[]" value="" autocomplete="off" placeholder="">
             <div id="suggest_ingredient${ingredientCount}"></div>
             <input class="mx-1 col" name="quantity[]" placeholder="">
-            <input class="col-1 ingredientMinus" type="button" value="-">
+            <div class="col-1">
+                <i class="ingredientMinus fa-regular fa-circle-xmark fa-lg" id="ingredientMinus"></i>
+            </div>
         `;
         ingredientPlus.before(ingredient);
         new Suggest.Local(`text_ingredient${ingredientCount}`, `suggest_ingredient${ingredientCount}`, ingredientList);
@@ -93,7 +97,7 @@
     
     document.addEventListener('click', function(e) {
         if(e.target && e.target.classList.contains('ingredientMinus')) {
-            e.target.parentNode.remove();
+            e.target.parentNode.parentNode.remove();
         }
     });
 
