@@ -9,7 +9,7 @@
     $category = getCategory($recipe['category_id']);
 ?>
     <div class="container p-5 card my-2">
-        <div class="mb-3 d-flex justify-content-between">
+        <div class="mb-3 d-flex">
             <p class="fs-1">
                 <?php echo $recipe['dish_name'];?>
             </p>
