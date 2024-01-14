@@ -17,7 +17,7 @@
     <p>安心してください。レシピを書いた人は誰にも知られることはありません。</p>
     <p>いいねも、コメントもありません。</p>
     <a href="./top.php">
-        <input type="button" value="さっそく始める">
+        <input class="btn btn-outline-secondary" type="button" value="さっそく始める">
     </a>
 </div>
 </body>

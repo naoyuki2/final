@@ -108,16 +108,12 @@
         }
     }
 
-    document.getElementById("backButton").addEventListener("click", function() {
-        history.back();
-    });
-
     document.getElementById("form").addEventListener("submit", function(event){
     let inputs = this.getElementsByTagName('input');
     let img_path = document.getElementById('img_path'); // nullを許可するinput要素
     for(let i = 0; i < inputs.length; i++) {
         if(inputs[i].value == '' && inputs[i] !== img_path) {
-            alert('すべてのフィールドを入力してください');
+            alert('画像以外のすべてのフィールドを入力してください');
             event.preventDefault();
             return false;
         }

@@ -61,8 +61,3 @@
     require './common/footer.php';
 ?>
 
-<script>
-    document.getElementById("backButton").addEventListener("click", function() {
-        history.back();
-    });
-</script>
