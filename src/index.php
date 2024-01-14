@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipient</title>
-    <link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
+<?php
+    require './common/index_header.php'
+?>
 <div class="opening" id="opening">
-    <img src="./img/opening3.jpg" alt="" class="logo" id="logo">
+    <img src="./img/opening.jpg" alt="" class="logo" id="logo">
 </div>
 
 <div class="item-wrap" id="itemWrap">
@@ -20,8 +14,10 @@
         <input class="btn btn-outline-secondary" type="button" value="さっそく始める">
     </a>
 </div>
-</body>
-</html>
+
+<?php
+    require './common/footer.php';
+?>
 
 <script>
     const logo = document.getElementById('logo');

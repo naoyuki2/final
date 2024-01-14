@@ -15,32 +15,14 @@
     <link rel="stylesheet" href="css/index.css" />
 
     <title>Recipient</title>
-    <script src="./lib/suggest.js"></script>
 </head>
 <body>
 <div class="wrap">
-<nav class="navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
-  <div class="container-fluid">
-    <i class="backButton fa-solid fa-arrow-left fa-3x" id="backButton"></i>
-    <form>
-      <input class="px-5 form-control me-2" type="search" placeholder="レシピを検索" aria-label="Search">
-    </form>
-
-    <div>
-        <a href="recipeWrite.php?write=true">レシピを書く</a>
-    </div>
-  </div>
-</nav>
-
 <script>
     window.addEventListener('load', () => {
     const wrap = document.querySelector('.wrap');
     setTimeout(() => {
-      wrap.classList.add('active');
+        wrap.classList.add('active');
     }, 200); // n秒後に.wrapを表示
-    });
-    
-    document.getElementById("backButton").addEventListener("click", function() {
-        history.back();
     });
 </script>
