@@ -11,13 +11,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 card p-4 my-3">
-                <div class="mb-3 d-flex">
-                    <p class="fs-4">
+                <div class="mb-3 fs-4 d-flex justify-content-between">
+                    <p>
                         <?php echo $recipe['dish_name'];?>
                     </p>
-                    <a class="btn btn-primary fs-4">
-                        <?php echo $category['category_name'];?>
-                    </a>
+                    <div>
+                        カテゴリ：
+                        <a href="./index.php" class="text-muted text-end">
+                            <?php echo $category['category_name'];?>
+                        </a>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col col-lg-6">
@@ -41,10 +44,11 @@
                         <p class="fs-6"><?php echo  $recipe['process'];?></p>
                     </div>
                 </div>
-                <form class="text-muted text-end bg-light p-3" action="./process/secretKeyCheck.php?recipe_id=<?php echo $recipe['id'];?>" method="post">
-                    <span class="fs-6">秘密の暗号を入力して、編集または削除をする</span>
+                <form class="rounded text-end bg-light p-3" action="./recipeEdit.php" method="post">
+                    <input type="hidden" name="recipe_id" value=<?php echo $recipe['id'];?>>
+                    <span class="fs-6">秘密の暗号を入力して編集または削除をする</span>
                     <input type="text" name="secret_key">
-                    <button type="submit">解除！</button>
+                    <button type="submit" class="btn btn-outline-success">解除</button>
                 </form>
             </div>
         </div>

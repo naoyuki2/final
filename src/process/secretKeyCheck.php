@@ -1,7 +1,7 @@
 <?php
     require '../utils/select.php';
 
-    $recipe_id = $_GET['recipe_id'];
+    $recipe_id = $_POST['recipe_id'];
     $secret_key = $_POST['secret_key'];
 
     $recipe = getRecipe($recipe_id);

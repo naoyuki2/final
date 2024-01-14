@@ -2,9 +2,16 @@
     require './common/header.php';
     require './utils/select.php';
     require './utils/update.php';
-    
-    $recipe_id = $_GET['id'];
 
+    $recipe_id = $_POST['recipe_id'];
+    $secret_key = $_POST['secret_key'];
+
+    $recipe = getRecipe($recipe_id);
+
+    if($secret_key !== $recipe['secret_key']){
+        echo '<script> history.back(); </script>';
+    }
+    
     $category = getAllCategory();
     $ingredient = getAllIngredient();
 
