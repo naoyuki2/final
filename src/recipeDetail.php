@@ -44,11 +44,15 @@
                         <p class="fs-6"><?php echo  $recipe['process'];?></p>
                     </div>
                 </div>
-                <form class="rounded text-end bg-light p-3" action="./recipeEdit.php" method="post">
+                <form class="row rounded bg-light p-3 fs-6" action="./recipeEdit.php" method="post">
+                    <div class="col-lg-6 col-12">
+                        <span>秘密の暗号を入力して編集または削除</span>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <input type="text" name="secret_key">
+                        <button type="submit" class="ms-1 btn btn-outline-success btn-sm">解除</button>
+                    </div>
                     <input type="hidden" name="recipe_id" value=<?php echo $recipe['id'];?>>
-                    <span class="fs-6">秘密の暗号を入力して編集または削除をする</span>
-                    <input type="text" name="secret_key">
-                    <button type="submit" class="btn btn-outline-success">解除</button>
                 </form>
             </div>
         </div>
