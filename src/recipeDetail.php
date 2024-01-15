@@ -40,9 +40,11 @@
                             </div>
                             <hr>
                             <?php } ?>
-                        <p class="fs-5 fw-bold">手順</p>
-                        <p class="fs-6"><?php echo  $recipe['process'];?></p>
                     </div>
+                </div>
+                <div class="row">
+                    <p class="fs-5 fw-bold">手順</p>
+                    <p class="fs-6"><?php echo  $recipe['process'];?></p>
                 </div>
                 <form class="row rounded bg-light p-3 fs-6" action="./recipeEdit.php" method="post">
                     <div class="col-lg-6 col-12">

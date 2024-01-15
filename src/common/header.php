@@ -21,13 +21,15 @@
 <div class="wrap">
 <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #f6ca99;">
   <div class="container-fluid">
-    <i class="backButton fa-solid fa-arrow-left fa-3x" id="backButton"></i>
+    <a href="./top.php">
+      <i class="backButton fa-solid fa-arrow-left fa-3x" id="backButton"></i>
+    </a>
     <form>
       <input class="px-5 form-control me-2" type="search" placeholder="レシピを検索" aria-label="Search">
     </form>
 
     <div>
-        <a href="recipeWrite.php?write=true">レシピを書く</a>
+        <a class="btn btn-primary" href="recipeWrite.php?write=true">レシピを書く</a>
     </div>
   </div>
 </nav>
@@ -40,7 +42,7 @@
     }, 200); // n秒後に.wrapを表示
     });
     
-    document.getElementById("backButton").addEventListener("click", function() {
-        history.back();
-    });
+    // document.getElementById("backButton").addEventListener("click", function() {
+    //     history.back();
+    // });
 </script>

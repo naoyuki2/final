@@ -1,7 +1,7 @@
 <?php
     require './common/header.php';
     $recipe_id = $_GET['recipe_id'];
-    $mode = $_GET['mode'];//update or insert
+    $mode = $_GET['mode'];//update or insert or secret or delete
 ?>
 
 <form action="./process/secretKeyInsert.php?recipe_id=<?php echo $recipe_id;?>" method="post">
@@ -13,11 +13,13 @@
                         <img src=
                         <?php
                             if($mode === 'secret'){
-                                echo './img/check_mark_red.svg';
+                                echo './img/check_mark_purple.svg';
                             }else if($mode === 'update'){
                                 echo './img/check_mark_blue.svg';
-                            }else{
+                            }else if($mode === 'insert'){
                                 echo './img/check_mark_green.svg';
+                            }else{
+                                echo './img/check_mark_red.svg';
                             }
                         ?>
                         class="check" alt="">
@@ -29,9 +31,11 @@
                                     echo '秘密の暗号を設定しました！';
                                 }else if($mode === 'update'){
                                     echo 'レシピの編集が完了しました！';
-                                }else{
+                                }else if($mode === 'insert'){
                                     echo 'レシピの投稿が完了しました！';
                                     echo '<hr>';
+                                }else{
+                                    echo 'レシピの削除が完了しました！';
                                 }
                             ?>
                         </p>
@@ -51,17 +55,19 @@
                     <?php } ?>
                     <div class="row">
                         <hr>
+                        <?php if($mode !== 'delete'){ ?>
                         <div class="col">
                             <a href="./recipeDetail.php?id=<?php echo $recipe_id;?>" class="btn btn-outline-success">
                                 <?php
                                     if($mode === 'update'){
                                         echo '編集したレシピを見に行く！';
-                                    }else{
+                                    }else if($mode === 'insert' || $mode === 'secret'){
                                         echo '投稿したレシピを見に行く！';
                                     }
                                 ?>
                             </a>
                         </div>
+                        <?php } ?>
                         <div class="col">
                             <a href="./top.php" class="btn btn-outline-primary">
                                 　　トップページに戻る　　
