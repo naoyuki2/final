@@ -58,5 +58,5 @@
         }
     }, $_POST['ingredient_name'], $_POST['quantity']);
 
-    header('Location: ../recipeComp.php?recipe_id=' . $recipe_id['id'] . '');
+    header('Location: ../recipeComp.php?recipe_id='.$recipe_id['id'].'&mode=insert');
 ?>

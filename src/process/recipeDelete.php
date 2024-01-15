@@ -1,7 +1,7 @@
 <?php
     require '../utils/delete.php';
 
-    $recipe_id = $_GET['id'];
+    $recipe_id = $_POST['id'];
 
     deleteRecipeIngredientLinkAll($recipe_id);
     deleteRecipe($recipe_id);

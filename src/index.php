@@ -9,8 +9,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <p class="comment fs-4">ようこそレシピ共有アプリ</p>
-                <p class="fs-5">ここでは自分のレシピをみんなに共有することができます。</p>
+                <p class="comment fs-4">ようこそレシピ共有アプリRecipientへ！</p>
+                <p class="fs-5">Recipient(レシピエント)では自分のレシピをみんなに共有することができます。</p>
                 <p class="fs-5">安心してください。レシピを書いた人は誰にも知られることはありません。</p>
                 <p class="fs-5">いいねも、コメントもありません。</p>
                 <a href="./top.php">

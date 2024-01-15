@@ -73,5 +73,5 @@
         }
     }
 
-    header('Location: ../top.php');
+    header('Location: ../recipeComp.php?recipe_id='.$recipe_id.'&mode=update');
 ?>
