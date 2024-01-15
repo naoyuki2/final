@@ -37,7 +37,10 @@
                                 <input class="mt-3 form-control card-img-top rounded-3" type="file" name="img_path" id="img_path">
                             </div>
                             <div class="card-body col col-lg-6">
-                                <p class="col fs-5 fw-bold">材料</p>
+                                <div class="d-flex justify-content-between">
+                                    <p class=" fs-5 fw-bold">材料</p>
+                                    <input class="h-1" type="text">
+                                </div>
                                 <div class="row text-center fs-6">
                                     <p class="me-1 col bg-light p-1 rounded">材料・調味料</p>
                                     <p class="col bg-light p-1 rounded">分量</p>
