@@ -34,11 +34,12 @@
         }
     }
 
-    function postRecipe($dish_name,$process,$img_path,$category_id){
+    function postRecipe($dish_name,$process,$img_path,$category_id,$number_of_people){
         global $pdo;
         try{
-            $stmt = $pdo->prepare("INSERT INTO recipe (dish_name,process,img_path,category_id) VALUES (?,?,?,?)");
-            $stmt->execute([$dish_name,$process,$img_path,$category_id]);
+    echo $_POST['number_of_people'];
+            $stmt = $pdo->prepare("INSERT INTO recipe (dish_name,process,img_path,category_id,number_of_people) VALUES (?,?,?,?,?)");
+            $stmt->execute([$dish_name,$process,$img_path,$category_id,$number_of_people]);
         }catch(PDOException $e){
             exit('データベース接続失敗。'.$e->getMessage());
         }
