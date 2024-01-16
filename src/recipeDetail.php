@@ -27,7 +27,8 @@
                         <img src=<?php echo $recipe['img_path'];?> alt="料理画像" class="card-img-top rounded-3">
                     </div>
                     <div class="card-body col col-lg-6">
-                        <p class="fs-5 fw-bold">材料 ( <span><?php echo $recipe['number_of_people'];?></span> 人分 )</p>
+                        <p class="fs-5 fw-bold">材料 （ <?php echo $recipe['number_of_people'];?> 人分 ）</p>
+
                         <?php foreach($recipeDetail as $row){ ?>
                             <?php $ingredient = getIngredient($row['ingredient_id']);?>
                             <div class="d-flex justify-content-between">

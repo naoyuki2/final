@@ -39,7 +39,7 @@
                             <div class="card-body col col-lg-6">
                                 <div class="d-flex justify-content-between">
                                     <p class=" fs-5 fw-bold">材料</p>
-                                    <input class="h-1" type="text">
+                                    <input class="h-1" type="number name="number_of_people"">
                                 </div>
                                 <div class="row text-center fs-6">
                                     <p class="me-1 col bg-light p-1 rounded">材料・調味料</p>

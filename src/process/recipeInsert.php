@@ -44,10 +44,8 @@
     }
 
     $category_id = getCategoryId($_POST['category_name']);
-    // echo $category_id['id']; 
 
-    postRecipe($_POST['dish_name'], $_POST['process'], $img_path, $category_id['id']);
-
+    postRecipe($_POST['dish_name'], $_POST['process'], $img_path, $category_id['id'], $_POST['number_of_people']);
     $recipe_id = getRecipeId($_POST['dish_name']);
 
     array_map(function($i, $q) {
