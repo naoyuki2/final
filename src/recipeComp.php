@@ -80,4 +80,13 @@
     </div>
 </form>
 
+<script>
+    document.getElementById("form").onkeypress = (e) => {
+    const key = e.keyCode || e.charCode || 0;
+        if (key == 13) {
+            e.preventDefault();
+        }
+    }
+</script>
+
 <?php require './common/footer.php'; ?>

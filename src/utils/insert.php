@@ -37,7 +37,6 @@
     function postRecipe($dish_name,$process,$img_path,$category_id,$number_of_people){
         global $pdo;
         try{
-    echo $_POST['number_of_people'];
             $stmt = $pdo->prepare("INSERT INTO recipe (dish_name,process,img_path,category_id,number_of_people) VALUES (?,?,?,?,?)");
             $stmt->execute([$dish_name,$process,$img_path,$category_id,$number_of_people]);
         }catch(PDOException $e){

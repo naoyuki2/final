@@ -25,7 +25,7 @@
       <i class="backButton fa-solid fa-arrow-left fa-3x" id="backButton"></i>
     </a>
     <form>
-      <input class="px-5 form-control me-2" type="search" placeholder="レシピを検索" aria-label="Search">
+      <!-- <input class="px-5 form-control me-2" type="search" placeholder="レシピを検索" aria-label="Search"> -->
     </form>
 
     <div>
